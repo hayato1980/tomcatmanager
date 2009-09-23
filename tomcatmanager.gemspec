@@ -25,9 +25,11 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "bin/tomcatmanager",
      "lib/tomcatmanager.rb",
      "spec/spec_helper.rb",
-     "spec/tomcatmanager_spec.rb"
+     "spec/tomcatmanager_spec.rb",
+     "tomcatmanager.gemspec"
   ]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/hayato1980/tomcatmanager}
