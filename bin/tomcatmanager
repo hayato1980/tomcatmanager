@@ -5,17 +5,19 @@ require 'lib/tomcatmanager'
 option = { }
 
 opt = OptionParser.new do |opt|
-  opt.on('-l', '--list') {|v| option[:command] = :list }
-  opt.on('-d VAL', '--deploy=VAL') do |v| 
+  opt.on('-l', '--list','list of application') {|v| option[:command] = :list }
+  opt.on('-d VAL', '--deploy=VAL','deploy application') do |v| 
     option[:command] = :deploy
     option[:deploy] = v
   end
-  opt.on('-e VAL', '--undeploy=VAL') do |v| 
+  opt.on('-e VAL', '--undeploy=VAL','undeploy application') do |v| 
     option[:command] = :undeploy
     option[:undeploy] = v
   end
-  opt.on('--user VAL') {|v| option[:user] = v }
-  opt.on('--password VAL') {|v| option[:password] = v }
+  opt.on('--serverinfo','print serverinfo') {|v| option[:command] = :serverinfo}
+
+  opt.on('--user VAL','manager application account') {|v| option[:user] = v }
+  opt.on('--password VAL','manager application password') {|v| option[:password] = v }
 end
 
 opt.parse!(ARGV)
@@ -32,5 +34,9 @@ when :deploy
   tm.deploy option[:deploy]
 when :undeploy
   tm.undeploy option[:undeploy]
+when :serverinfo
+  puts tm.serverinfo
+else
+  puts opt
 end
 

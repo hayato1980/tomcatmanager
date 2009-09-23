@@ -49,7 +49,6 @@ class TomcatManager
 
     def default_pathname filename
       result =File.basename(filename).gsub( /\.war/i , "")
-      puts result
       result
     end
     path = default_pathname(filename) if path.nil?
@@ -59,6 +58,10 @@ class TomcatManager
     end
 
     puts response.body
+  end
+
+  def serverinfo
+    request('/manager/serverinfo').body
   end
 
   def request(path,method=:get)
@@ -82,5 +85,7 @@ class TomcatManager
       return response
     end
   end
+
+  
 
 end
