@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'lib/tomcatmanager'
+option = { }
+
+opt = OptionParser.new do |opt|
+  opt.on('-l', '--list') {|v| option[:command] = :list }
+  opt.on('-d VAL', '--deploy=VAL') do |v| 
+    option[:command] = :deploy
+    option[:deploy] = v
+  end
+  opt.on('-e VAL', '--undeploy=VAL') do |v| 
+    option[:command] = :undeploy
+    option[:undeploy] = v
+  end
+  opt.on('--user VAL') {|v| option[:user] = v }
+  opt.on('--password VAL') {|v| option[:password] = v }
+end
+
+opt.parse!(ARGV)
+
+tm = TomcatManager.new do|tm|
+  tm.manager= option[:user]
+  tm.password = option[:password]
+end
+
+case option[:command]
+when :list
+  tm.list.each {|app| puts app[:path] }
+when :deploy
+  tm.deploy option[:deploy]
+when :undeploy
+  tm.undeploy option[:undeploy]
+end
+
