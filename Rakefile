@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "tomcatmanager"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{frontend of Apache Tomcat manager application}
+    gem.description = %Q{frontend of Apache Tomcat manager application implemented by ruby}
     gem.email = "haya10.ito+github@gmail.com"
     gem.homepage = "http://github.com/hayato1980/tomcatmanager"
     gem.authors = ["Hayato"]

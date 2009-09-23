@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ["Hayato"]
   s.date = %q{2009-09-23}
   s.default_executable = %q{tomcatmanager}
-  s.description = %q{TODO: longer description of your gem}
+  s.description = %q{frontend of Apache Tomcat manager application implemented by ruby}
   s.email = %q{haya10.ito+github@gmail.com}
   s.executables = ["tomcatmanager"]
   s.extra_rdoc_files = [
@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.1}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{frontend of Apache Tomcat manager application}
   s.test_files = [
     "spec/spec_helper.rb",
      "spec/tomcatmanager_spec.rb"
